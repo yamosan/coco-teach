@@ -119,10 +119,13 @@ html {
   padding: 0 500px 50px 500px;
   gap: 20px;
 }
-.sec6 {
-  /* 最後のセクションでscrollTriggerが発火しないバグ */
-  height: calc(100vh + 10px);
+
+/* 最後のセクションでscrollTriggerが発火しないバグ */
+.sec-last {
   scroll-margin-top: -10px;
+}
+.sec6 {
+  height: calc(100vh + 10px);
 }
 
 /* .sec1 {
