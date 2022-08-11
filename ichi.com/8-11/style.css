@@ -139,7 +139,7 @@ html {
 } */
 
 .bg-pic {
-  background-image: url(/images/first-view.jpg);
+  background-image: url(./images/first-view.jpg);
   background-size: cover;
 }
 
@@ -376,7 +376,7 @@ body {
 .bg-pic-last {
   width: 100%;
   height: 100%;
-  background-image: url(/images/first-view.jpg);
+  background-image: url(./images/first-view.jpg);
   background-size: 100% 70%;
   background-repeat: no-repeat;
 }
