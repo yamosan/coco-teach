@@ -1,0 +1,471 @@
+:root{
+    --color-main: #E6551A;
+    --color-black: #212328;
+    --color-white: #F0F8FA;
+    --color-gray: #979797;
+    --header-height: 94px;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+img{
+    width:100%;
+}
+
+body{
+    font-family: "Noto Sans JP";/*仮*/
+    color: var(--color-black);
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper{
+    min-width: 1000px;
+}
+.ttl-01{
+    font-family: ab-hanamaki,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.txt-basic{
+    font-family: "Noto Sans JP", sans-serif;
+    color: var(--color-black);
+    font-size: 18px;
+    line-height: 160%;
+}
+/* --------------------------header----------------------------- */
+.header {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: 94px;
+    /* background-color: var(--color-black); */
+    padding: 0 60px;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+.open-btn{
+    position: fixed;
+    top: 15px;
+    right: 45px;
+    display: flex;
+    height: 60px;
+    width: 60px;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0);
+}
+.open-btn span,
+.open-btn span:before,
+.open-btn span::after{
+    content: '';
+    display: block;
+    height: 3px;
+    width: 60px;
+    border-radius: 3px;
+    background-color: var(--color-white);
+    position: absolute;
+}
+.open-btn span::before{
+    bottom: 15px;
+}
+.open-btn span::after{
+    top: 15px;
+}
+#menu-btn-check:checked ~ .open-btn {
+    display: none;
+}
+
+#menu-btn-check {
+    display: none;
+}/*チェックボックス非表示*/
+.close-btn{
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: var(--color-main);
+    position: absolute;
+    top: 38px;
+    right: 42px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.close-btn > span::before,
+.close-btn > span::after {
+    content: '';
+    display: block;
+    height: 3px;
+    width: 60px;
+    background: var(--color-white);
+}
+
+.close-btn > span::before {
+    bottom: 0;
+    transform: rotate(45deg);
+}
+.close-btn > span::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+
+.menu-content {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 100%;
+    z-index: 2;
+    background-color: rgba(38, 39, 46, 0.8);
+    transition: all 0.5s;
+    /* opacity: 0.6; */
+}
+#menu-btn-check:checked ~ .menu-content {
+    left: 0;
+}
+
+
+.menu-content ul{
+    padding: 70px 10px 0;
+    margin-top: 60px;
+}
+.menu-link {
+    display: block;
+    width: max-content;
+    color: var(--color-white);
+    text-decoration: none;
+    position: relative;
+    margin-left: 200px;
+    margin-bottom: 38px;
+}
+
+.menu-txt{
+    font-size: 50px;
+    /* margin-bottom: 10px; */
+}
+.menu-subtxt{
+    font-size: 20px;
+}
+
+/* --------------------------header----------------------------- */
+
+
+h1{
+    font-size: 40px;
+}
+.main{
+    padding-top: var(--header-height);
+    height: 100vh;
+    background: var(--color-black);
+    background-image: url(img/main.png);
+    background-size:cover;
+    background-position: center;
+}
+.main-txt{
+    max-width:710px;
+    margin:0 auto ;
+}
+/* --------------------------concept----------------------------- */
+.concept{
+    padding-top: var(--header-height);
+    height: 1311px;
+    background: var(--color-black);
+}
+/* ここから実験 -------------------------------------- */
+
+/* ここまで実験---------------------------------------- */
+.concept-ttl{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.concept-ttl-1{
+    font-size: 45px;
+    letter-spacing: 15px;
+    color: var(--color-white);
+}
+.concept-ttl-2{
+    font-size: 30px;
+    display: flex;
+    letter-spacing: 10px;
+    color: var(--color-white);
+}
+
+.concept-img{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+.concept-img img{
+    max-width: 1040px;
+}
+.concept-txt{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-family: "Noto Sans JP", sans-serif;
+    font-size: 25px;
+    line-height: 35px;
+    color: var(--color-white);
+}
+/* .concept-txt-1{
+    margin-bottom: 60px;
+    z-index: -5;
+    display: block;
+} */
+.concept-txt-1{
+    margin-bottom: 100px;
+}
+.concept-txt-2{
+    margin-bottom: 100px;
+}
+.concept-txt-3{
+    margin-bottom: 60px;
+}
+.concept-txt-img{
+    width: 950px;
+    height: 430px;
+}
+.box{
+    position: relative;
+}
+
+#box1{
+    background-color: rgba(255, 0, 0, 0.4);
+    width: 285px;
+    height: 25px;
+   position: absolute;
+   top: 13px;
+   left: 600px;
+   display: block;
+    -webkit-transition: all 0.4s cubic-bezier(.5, .24, 0, 1); /*こやつ*/
+    transition: all 0.4s cubic-bezier(.5, .24, 0, 1)
+}
+#box1.on{
+    display: none;
+}
+/* --------------------------concept----------------------------- */
+
+/* --------------------------how to use----------------------------- */
+.how{
+    scroll-margin-top: var(--header-height);
+    background: var(--color-main);
+    padding: 100px 0;
+}
+.how-ttl{
+    width:max-content;
+    margin: 0 auto;
+    padding: 0 8px;
+
+    /* margin-top: 100px; */
+    /* font-size: 40px; */
+    /* font-weight: 100; */
+    letter-spacing: 7px;
+    font-size: 60px;
+}
+.how-content{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1040px;
+    margin:0 auto;
+}
+.how-step{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    text-align: center;
+    gap:10px;
+    /* font-size: 35px; */
+}
+.how-sub-ttl{
+    font-size: 15px;
+    line-height: 120%;
+}
+.how-sub-txt{
+    font-family: 'AB-hanamaki';
+    font-size: 23px;
+    line-height: 160%;
+}
+.how-img{
+    width:200px;
+}
+
+/* --------------------------how to use----------------------------- */
+
+
+/* ------------------------------feature---------------------------- */
+.feature{
+    scroll-margin-top: var(--header-height);
+    height: 2591px;
+    background: var(--color-black);
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+}
+.feature-ttl{
+    width:max-content;
+    margin-top: 100px;
+    padding: 0 8px;
+    letter-spacing: 7px;
+    font-size: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-white);
+}
+.rank{
+    display: flex;
+    justify-content: center;
+}
+
+
+.square{
+    width: 1040px;
+    height: 396px;
+    background-color: var(--color-white);
+    border-radius: 70px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.feature p{
+    margin-top: 30px;
+    max-width: 500px;
+}
+.feature h2{
+    font-family: 'Noto Sans CJK JP';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 120%;
+    margin-left: 10px;
+}
+
+.square-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:90px;
+    padding: 30px 80px;
+}
+.square-content img{
+    width:250px; 
+    /* 本当は480px */
+}
+.rank-img{
+    display: flex;
+    justify-content: center;
+}
+.rank-img1{
+    width: 100px;
+    height: 100px;
+}
+.feature-txt_l{
+    display: flex;
+    flex-direction: column;
+}
+
+.fttr::before{
+    position:relative;
+    content: url(img/moviemark.svg);
+    top:0px;
+    left: -10px;;
+}
+
+
+
+.square1{
+    background: var(--color-white);
+    margin-left: auto;
+    border-radius: 70px 0px 0px 70px;
+}
+.square2{
+    background: var(--color-white);
+    margin-right: auto;
+    border-radius: 0px 70px 70px 0px;
+}
+.square3{
+    background: var(--color-white);
+    margin-left: auto;
+    border-radius: 70px 0px 0px 70px;
+}
+
+/* ------------------------------feature---------------------------- */
+
+/* ------------------------------install---------------------------- */
+
+.install{
+    background: var(--color-main);
+    padding:120px 0;
+}
+.install-img{
+    margin: 0 auto 25px;
+    max-width:750px;
+}
+
+.apple{
+    width:155px;
+}
+.google{
+    width:200px;
+}
+.install-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:50px;
+    margin: 50px auto 0;
+}
+.install h1{
+    text-align: center;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 150%;
+    color:#F0F8FA
+}
+/* ------------------------------install---------------------------- */
+
+.footer {
+    background-color: var(--color-black);
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 160%;
+    color: var(--color-white);
+    vertical-align: middle;
+    padding: 30px 0;
+}
+
+
+.sns{
+    text-align: center;
+}
+.sns-inner{
+    position: relative;
+    width: 100%;
+    background-color:  var(--color-black);
+}
+.sns-inner::before{
+    content: url(img/footer-logo.svg);
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    left:50px;
+    
+}
+.sns-img{
+    width:160px;
+    margin:25px auto 0;
+}
+
+
+
