@@ -122,6 +122,7 @@ body {
   position: relative;
   z-index: 1;
   width: max-content;
+  pointer-events: none;
 }
 
 .main-menu .circle-bg {
@@ -208,6 +209,10 @@ body {
 }
 #nav.menu-active .menu1-2 {
   display: block;
+}
+
+#nav.menu-active .main-menu {
+  pointer-events: auto;
 }
 
 #nav.menu-active .circle-bg {

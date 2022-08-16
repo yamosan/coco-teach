@@ -57,30 +57,19 @@ swiper.on("slideChange", function (swiper) {
   }
 });
 
-$(".menu").click(function () {
-  //ボタンがクリックされたら
-  $(this).toggleClass("active"); //ボタン自身に activeクラスを付与し
-  $("#nav").toggleClass("panelactive"); //ナビゲーションにpanelactiveクラスを付与
-  $(".circle-bg").toggleClass("circleactive"); //丸背景にcircleactiveクラスを付与
-  // $(".menu_close").toggleClass('humactive');//ハンバーガーcloseにhumactiveクラスを付与
-  // $(".menu").toggleClass('hum2active');//ハンバーガーmenuにhumactiveクラスを付与
-  $(".menu1").toggleClass("active"); //ボタン自身に activeクラスを付与
-  $(".menu2").toggleClass("active"); //ボタン自身に activeクラスを付与
-  $(".menu3").toggleClass("active"); //ボタン自身に activeクラスを付与
-  $(".menu4").toggleClass("active"); //ボタン自身に activeクラスを付与
-  $(".menu1-2").toggleClass("active");
+// ------------------------------------------------------------------------------------
+// ハンバーガーボタンがクリックされた時
+const menu = document.querySelector(".menu");
+const nav = document.querySelector("#nav");
+menu.addEventListener("click", () => {
+  nav.classList.toggle("menu-active");
 });
 
-$("#nav a").click(function () {
-  //ナビゲーションのリンクがクリックされたら
-  $(".menu").removeClass("active"); //ボタンの activeクラスを除去し
-  $("#nav").removeClass("panelactive"); //ナビゲーションのpanelactiveクラスを除去
-  $(".circle-bg").removeClass("circleactive"); //丸背景のcircleactiveクラスを除去
-  $(".menu_close").removeClass("humactive"); //ハンバーガーにhumactiveクラスを付与
-  $(".menu").removeClass("hum2active"); //ハンバーガーmenuにhumactiveクラスを付与
-  $(".menu1").removeClass("active"); //ボタン自身に activeクラスを付与
-  $(".menu2").removeClass("active"); //ボタン自身に activeクラスを付与
-  $(".menu3").removeClass("active"); //ボタン自身に activeクラスを付与
-  $(".menu4").removeClass("active"); //ボタン自身に activeクラスを付与
-  $(".menu1-2").removeClass("active");
+//ナビゲーションのリンクがクリックされたら
+const links = document.querySelectorAll("#nav a");
+links.forEach((link) => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("menu-active");
+  });
 });
+// ------------------------------------------------------------------------------------
