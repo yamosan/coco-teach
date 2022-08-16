@@ -1,14 +1,27 @@
-'use strict';
-{
-   const $box1=document.getElementById('box1')
-   window.addEventListener('scroll',() => {
-    let scrollY = window.scrollY;
-    // console.log(window.scrollY);
-    if (1000 < scrollY){
-        $box1.classList.add('on');
+const hideText = document.querySelectorAll(".hide-text");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("view");
     }
+  });
+});
+hideText.forEach((item) => {
+  observer.observe(item);
+});
 
-    
-
-   });
-}
+// グルーピングしてタイミング揃える
+// const hideTextGroup = document.querySelectorAll(".hide-text-group");
+// const observer = new IntersectionObserver((entries) => {
+//   entries.forEach((entry) => {
+//     if (entry.isIntersecting) {
+//       const children = entry.target.querySelectorAll(".hide-text");
+//       children.forEach((hideText) => {
+//         hideText.classList.add("view");
+//       });
+//     }
+//   });
+// });
+// hideTextGroup.forEach((item) => {
+//   observer.observe(item);
+// });
