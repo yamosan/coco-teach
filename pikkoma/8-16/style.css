@@ -1,0 +1,945 @@
+/* フォントファイル読み込みのための記述 */
+/* @font-face {
+  font-family: "main-font";
+  src: url("./fonts/file-name.woff") format("woff");
+} */
+
+:root {
+  --color-main: #facf67;
+  --color-orange: #f08627;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.menu4 {
+  width: 65px;
+  position: absolute;
+  top: 63px;
+  right: 2.5%;
+  animation-name: menu4back;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  position: fixed;
+  z-index: 4;
+}
+
+.menu1 {
+  width: 65px;
+  position: absolute;
+  right: 2.5%;
+  top: 10px;
+  position: fixed;
+  z-index: 4;
+}
+
+.menu2 {
+  width: 65px;
+  position: absolute;
+  top: 38.5px;
+  right: 2.5%;
+  /* display: absolute;
+  top:5px;
+  right: 0px; */
+  animation-name: menu2back;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  position: fixed;
+  z-index: 4;
+  /* cheese */
+}
+
+.menu3 {
+  width: 70px;
+  position: absolute;
+  top: 50px;
+  right: 2.1%;
+  animation-name: menu3back;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  position: fixed;
+  z-index: 4;
+  /* tomato */
+}
+
+.menu1-2 {
+  width: 65px;
+  display: none;
+  position: absolute;
+  right: 2.5%;
+  top: 10px;
+  position: fixed;
+  z-index: 4;
+}
+
+/* メニュー start　------------------------------------------------------------------------------------ */
+
+#nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+.menu {
+  position: fixed;
+  z-index: 9999999;
+  position: relative;
+  width: 120px;
+  height: 50px;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  display: block;
+  transition: all 0.4s;
+}
+
+.main-menu {
+  position: relative;
+  z-index: 1;
+  width: max-content;
+}
+
+.main-menu .circle-bg {
+  position: absolute;
+  top: -160px;
+  right: -83px;
+  /*丸の形*/
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: linear-gradient(#fbe8c8, #f8b62d);
+  /*丸のスタート位置と形状*/
+  transform: scale(0); /*scaleをはじめは0に*/
+  transition: all 0.4s; /*0.6秒かけてアニメーション*/
+}
+
+.main-menu ul {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.2s;
+  padding-right: 100px;
+  padding-top: 11px;
+}
+
+.main-menu ul li a {
+  color: #8a5702;
+  text-decoration: none;
+  padding: 25px;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "ヒラギノ角ゴ ProN";
+  position: relative;
+}
+
+/* todo */
+#nav li.current a,
+#nav li a:hover {
+  color: #90b045;
+}
+#nav li a::after {
+  content: "";
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  /*線の形状*/
+  width: 80%;
+  height: 2px;
+  background: #90b045;
+  /*アニメーションの指定*/
+  transition: all 0.3s;
+  transform: scale(0, 1); /*X方向0、Y方向1*/
+  transform-origin: left top; /*左上基点*/
+}
+/*現在地とhoverの設定*/
+#nav li.current a::after,
+#nav li a:hover::after {
+  transform: scale(0.3, 1); /*X方向にスケール拡大*/
+}
+/* todo */
+
+/* メニュークリック時 start--------------------- */
+#nav.menu-active .menu1 {
+  /* transform: translateY(10px); */
+}
+#nav.menu-active .menu2 {
+  animation-name: menu2Anime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+#nav.menu-active .menu3 {
+  animation-name: menu3Anime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+#nav.menu-active .menu4 {
+  animation-name: menu4Anime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+#nav.menu-active .menu1-2 {
+  display: block;
+}
+
+#nav.menu-active .circle-bg {
+  transform: scale(1);
+}
+
+#nav.menu-active .main-menu ul {
+  opacity: 1;
+}
+
+@keyframes menu2Anime {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
+@keyframes menu3Anime {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(20px);
+  }
+}
+@keyframes menu4Anime {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(30px);
+  }
+}
+@keyframes menu2back {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+@keyframes menu3back {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+@keyframes menu4back {
+  from {
+    transform: translateY(30px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+/* メニュークリック時 end--------------------- */
+
+/* .header {
+  width: 100%;
+  margin-top: 10px;
+  /* padding-right:10px; */
+/* position: fixed; */
+/* display:flex; */
+/* justify-content: flex-end; */
+/* align-items: center; */
+/* z-index: 1; */
+/* } */
+
+/*アクティブになったエリア*/
+/* #nav.panelactive { */
+/*position:fixed;にし、z-indexの数値を大きくして前面へ*/
+/* position: fixed;
+  z-index: 4;
+  top: 0;
+  right: 0;
+  width: max-content;
+  height: max-content;
+} */
+/* .circle-bg.circleactive {
+  transform: scale(1); /*クラスが付与されたらscaleを拡大*/
+/* }  */
+
+/* #humburgar {
+  /* position:fixed; */
+/* z-index: 2;
+} */
+
+/*丸の拡大*/
+/* .circle-bg {
+  position: fixed;
+  z-index: 3; */
+/*丸の形*/
+/* width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  background: linear-gradient(var(--color-main), var(--color-orange)); */
+/* 丸のスタート位置と形状 */
+/* transform: scale(0); scaleをはじめは0に */
+/* right: 85px; */
+/* top: 85px; */
+/* transition: all 0.4s; 0.6秒かけてアニメーション */
+/* } */
+
+/* #nav {
+  display: none;
+}
+
+.menu_close {
+  display: none;
+} */
+
+/* #nav.panelactive {
+  display: block; クラスが付与されたら出現 */
+/* } */
+/* .menu_close.humactive {
+  display: block; /*クラスが付与されたら出現*/
+/* } */
+
+/*背景が出現後にナビゲーションを表示*/
+/* #nav.panelactive ul {
+  opacity: 1;
+} */
+
+/* 背景が出現後にナビゲーション li を表示※レイアウトによって調整してください。不必要なら削除*/
+/* #nav.panelactive ul li {
+  animation-name: gnaviAnime;
+  animation-duration: 1s;
+  animation-delay: 0.2s; /*0.2 秒遅らせて出現*/
+/* animation-fill-mode: forwards;
+  opacity: 0;
+} */
+
+/* @keyframes gnaviAnime {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+} */
+
+/*リストのレイアウト設定*/
+/* #nav li { */
+/* text-align: center;  */
+/* display: flex;
+  list-style: none;
+} */
+
+/* .main-menu {
+  padding-left: 25%;
+  padding-top: 15%;
+}
+
+#nav li a {
+  color: #8a5702;
+  text-decoration: none;
+  padding: 0px; */
+/* display: flex; */
+/* text-transform: uppercase;
+  line-height: 2em;
+  letter-spacing: 0em;
+  font-weight: bold;
+  font-size: 27px;
+  font-family: "ヒラギノ角ゴ ProN";
+  position: relative;
+} */
+
+/* #nav li.current a,
+#nav li a:hover {
+  color: #90b045;
+}
+#nav li a::after {
+  content: ""; */
+/*絶対配置で線の位置を決める*/
+/* position: absolute;
+  bottom: 0;
+  left: 5%; */
+/*線の形状*/
+/* width: 80%;
+  height: 2px;
+  background: #90b045; */
+/*アニメーションの指定*/
+/* transition: all 0.3s;
+  transform: scale(0, 1); /*X方向0、Y方向1*/
+/* transform-origin: left top; /*左上基点*/
+/* } */
+/*現在地とhoverの設定*/
+/* #nav li.current a::after,
+#nav li a:hover::after {
+  transform: scale(0.3, 1); /*X方向にスケール拡大*/
+/* }  */
+
+/* .menu1.active { */
+/* transform: translateY(10px); */
+/* }
+.menu2.active {
+  animation-name: menu2Anime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.menu3.active {
+  animation-name: menu3Anime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.menu4.active {
+  animation-name: menu4Anime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+.menu1-2.active {
+  display: block;
+} */
+
+/* ハンバーガーアニメーション */
+/* @keyframes menu2Anime {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
+@keyframes menu3Anime {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(20px);
+  }
+}
+@keyframes menu4Anime {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(30px);
+  }
+}
+
+@keyframes menu2back {
+  from {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+@keyframes menu3back {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+@keyframes menu4back {
+  from {
+    transform: translateY(30px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+} */
+
+/* アニメーションfin */
+
+.overlay {
+  display: none; /* input にチェックが入るまでは非表示に */
+}
+
+.overlay2 {
+  display: none; /* input にチェックが入るまでは非表示に */
+}
+.open {
+  cursor: pointer;
+  /* マウスオーバーでカーソルの形状を変えることで、クリックできる要素だとわかりやすいように */
+  /* display: block; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  width: 205px;
+  padding: 10px 30px;
+  margin: 30px auto;
+  border-radius: 35px;
+  background-color: white;
+}
+/*hoverした際の、背景の場所とテキスト色の変更*/
+.open:hover {
+  color: var(--color-orange);
+  background-position: 99% 50%;
+}
+
+/* .menu {
+  cursor: pointer;
+  display: block;
+  transition: all 0.4s;
+  position: relative;
+z-index: 9999999; */
+/* ボタンを最前面に */
+/* } */
+.menu:hover {
+  opacity: 0.7;
+  color: white;
+}
+
+#pop-up {
+  display: none; /* label でコントロールするので input は非表示に */
+}
+/* #humburgar{
+  display: none;
+} */
+
+.overlay {
+  display: none; /* input にチェックが入るまでは非表示に */
+}
+.overlay2 {
+  display: none;
+}
+
+#pop-up:checked + .overlay {
+  animation-name: fadeInAnime;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+
+  display: block;
+  z-index: 9999;
+  background-color: #00000070;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.window {
+  width: 90vw;
+  max-width: 380px;
+  height: 240px;
+  /* background-color: #ffffff; */
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.popupic {
+  width: 305px;
+  position: relative;
+}
+
+/* .change{
+
+} */
+
+.text {
+  font-size: 18px;
+  margin: 0;
+}
+.close {
+  cursor: pointer;
+  font-weight: bold;
+  position: absolute;
+  top: -6px;
+  right: 20px;
+  font-size: 50px;
+  z-index: 1;
+}
+
+/* .menu_close{
+  cursor:pointer;
+} */
+
+@keyframes fadeInAnime {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+body {
+  background-image: url(./images/background_2.png);
+  /* background-repeat: repeat; */
+  background-size: 500px;
+  font-family: "Hiragino Kaku Gothic Pro";
+}
+
+.title {
+  padding-top: 75px;
+  height: 750px;
+  width: 100vw;
+  background-image: url(./images/bg-title.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 750px;
+}
+
+.mog {
+  width: 180px;
+}
+
+.share {
+  font-size: 13px;
+  text-align: center;
+}
+
+.service {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.start {
+  font-size: 16px;
+  width: 172px;
+  padding: 10px 30px;
+  margin: 30px auto;
+  border-radius: 35px;
+  background-color: white;
+}
+
+.title_1 {
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+}
+
+.cg {
+  position: relative;
+  width: 100%;
+  height: 490px;
+}
+
+.cg1 {
+  height: 220px;
+  position: absolute;
+  bottom: 0%;
+  right: 2%;
+}
+
+.cg2 {
+  height: 111px;
+  position: absolute;
+  right: 10%;
+  top: 5%;
+}
+
+.cg3 {
+  width: 277px;
+  height: 480px;
+  object-fit: cover;
+  object-position: 100% 0;
+  position: absolute;
+}
+
+.cg4 {
+  position: absolute;
+  top: 200px;
+  right: 100px;
+}
+
+.cg5 {
+  position: absolute;
+  top: 140px;
+  left: 150px;
+}
+
+.cg6 {
+  position: absolute;
+  left: 50%;
+  top: 60%;
+}
+
+.cg7 {
+  height: 80px;
+  position: absolute;
+  right: 5%;
+  top: 40%;
+}
+
+.cg8 {
+  height: 80px;
+  position: absolute;
+  right: 1%;
+  top: 46%;
+}
+
+.cg9 {
+  position: absolute;
+  width: 500px;
+  height: 545px;
+  top: -10%;
+  left: -30%;
+  object-fit: cover;
+  object-position: 100% 0;
+  position: absolute;
+}
+
+.cg10 {
+  height: 82px;
+  position: absolute;
+  top: 33%;
+  left: 60%;
+}
+
+.pic {
+  content: "";
+  height: 55px;
+  width: 55px;
+  margin: 0 12px 0 0;
+  background-color: white;
+}
+
+.about {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.about_block {
+  width: 309px;
+  height: 560px;
+  margin: auto;
+  border-radius: 41px;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+/* .white_block{
+  padding-top: 124px;
+  padding-bottom: 124px;
+} */
+
+.about_title {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.about1 {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0 0 30px 0;
+  line-height: 3em;
+}
+
+.about2 {
+  font-size: 12px;
+  text-align: center;
+  line-height: 4em;
+  margin-bottom: 50px;
+}
+
+.howtouse {
+  padding-top: 70px;
+  height: 900px;
+  width: 100vw;
+  position: relative;
+  z-index: -1;
+}
+
+.howbg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 850px;
+}
+
+.howbg > path {
+  transition: fill 400ms;
+  fill: #facf67;
+}
+
+.how {
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 2px 0 var(--color-orange), 2px -2px 0 var(--color-orange),
+    -2px 2px 0 var(--color-orange), -2px -2px 0 var(--color-orange);
+  color: white;
+  text-align: center;
+}
+
+.howp {
+  color: #8a5702;
+  text-align: center;
+  margin: 5px;
+}
+
+.step-container {
+  position: relative;
+  width: 246px;
+  height: 539px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+.stepnum {
+  position: absolute;
+  z-index: 2;
+  top: -30px;
+  left: -60px;
+  text-align: center;
+  background-color: #f08627;
+  color: #fff;
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  padding-top: 25px;
+}
+
+.step {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.num {
+  font-size: 51px;
+  font-weight: bold;
+}
+
+.use {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 23px;
+}
+
+.download {
+  height: 100vh;
+  display: flex;
+  padding-top: 60px;
+  justify-content: center;
+  align-items: center;
+}
+
+.button {
+  padding: auto;
+}
+
+.button_block {
+  background-color: rgba(255, 255, 255, 0.85);
+  width: 309px;
+  border-radius: 41px;
+  text-align: center;
+  padding-top: 23px;
+  padding-bottom: 35px;
+  margin: auto;
+}
+
+.letstry {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+.app {
+  height: 300px;
+  width: 138px;
+  border-radius: 5%;
+  background-color: grey;
+}
+
+.appstore {
+  margin-top: 19px;
+}
+
+.googleplay {
+  margin-top: 19px;
+}
+
+.gazou {
+  width: 100%;
+  display: flex;
+  margin: 17px auto;
+  margin-top: 17px;
+  justify-content: center;
+}
+
+.scene2 {
+  position: relative;
+  top: 75px;
+  left: -17px;
+}
+
+.footer {
+  height: 270px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* ------------ */
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-pagination-bullet {
+  /* background-color: yellow; */
+}
+
+@media screen and (min-width: 800px) {
+  .about_block {
+    width: 600px;
+  }
+
+  .howbg {
+    height: 1000px;
+  }
+  .step-container {
+    width: 300px;
+    height: 657px;
+  }
+}
